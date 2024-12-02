@@ -1,6 +1,8 @@
+use std::collections::HashMap;
 use std::fs::read_to_string;
 
 fn main() {
+    // Part One
     let mut left: Vec<i32> = Vec::new();
     let mut right: Vec<i32> = Vec::new();
 
@@ -30,4 +32,22 @@ fn main() {
         .sum();
 
     println!("Total sum of differences: {}", total);
+
+    // Part Two
+    let mut right_counts: HashMap<i32, u32> = HashMap::new();
+
+    for &num in right.iter() {
+        let count = right_counts.entry(num).or_insert(0);
+        *count += 1;
+    }
+
+    let total: i64 = left
+        .iter()
+        .map(|&num| {
+            let frequency = right_counts.get(&num).unwrap_or(&0);
+            (num as i64) * (*frequency as i64)
+        })
+        .sum();
+
+    println!("Total similarity score: {}", total);
 }
