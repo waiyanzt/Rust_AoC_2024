@@ -1,5 +1,5 @@
 // main.rs
-use day2::is_safe_report;
+use day2::is_safe_with_dampener;
 use std::fs::read_to_string;
 
 fn main() {
@@ -16,7 +16,7 @@ fn main() {
 
     let safe_count = reports
         .iter()
-        .filter(|report| is_safe_report(report))
+        .filter(|report| is_safe_with_dampener(report))
         .count();
-    println!("Number of safe reports: {}", safe_count);
+    println!("Number of safe reports with dampener: {}", safe_count);
 }
