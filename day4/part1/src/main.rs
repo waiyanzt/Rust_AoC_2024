@@ -24,10 +24,8 @@ fn main() -> std::io::Result<()> {
     let grid = Grid::new(grid_data);
     let mut count = 0;
 
-    // Check every position as a potential starting point
     for row in 0..grid.rows {
         for col in 0..grid.cols {
-            // Check all 8 directions from this position
             for &(dir_row, dir_col) in DIRECTIONS.iter() {
                 if grid.check_xmas_at_position(row as i32, col as i32, dir_row, dir_col) {
                     count += 1;
