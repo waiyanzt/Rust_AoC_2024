@@ -1,0 +1,11 @@
+input.txt
+**/input.txt
+**/test/txt
+
+# Rust specific ignores
+**/target/
+**/*rs.bk
+Cargo.lock
+
+
+day*/input.txt
